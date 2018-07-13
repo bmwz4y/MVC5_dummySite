@@ -1,0 +1,25 @@
+﻿@* added on lesson 92 moved the inside of else (i.e. table and corresponding pager) and back because it turned out to need a lot of work and cleaning *@
+
+@if (ViewBag.FlipFlop == "Flop is success")
+{
+    <div class="label-success">
+        <h3>Flop</h3>
+    </div>
+}
+else if (ViewBag.FlipFlop == "Flip is warning")
+{
+    <div class="label-warning">
+        <h3>Flip!</h3>
+        @* ReSharper disable UnknownCssClass *@
+    </div>
+}
+else
+{
+    <div class="label-error">
+        @* ReSharper restore UnknownCssClass *@
+        <h3>FlipFlopERROR</h3>
+    </div>
+}
+
+<br />
+<br />

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="myTestingDBEntities">
+    <EntitySetMapping Name="crazyTables">
+      <EntityTypeMapping TypeName="Models.crazyTable">
+        <MappingFragment StoreEntitySet="crazyTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="crazy" ColumnName="crazy" />
+          <ScalarProperty Name="crazydate" ColumnName="crazydate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

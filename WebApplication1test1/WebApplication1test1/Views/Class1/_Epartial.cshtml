@@ -1,0 +1,26 @@
+﻿@model WebApplication1test1.Models.Class1
+
+@*lesson 52*@
+<table style="font-family:Arial; border:1px solid black; width: 300px">
+    <tr>
+        <td>
+            <img style="width:100px; height:100px" src="~/Content/Images/smile.png" alt="pic for @Model.SomeId is missing" />
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td><b>Id:</b></td>
+                    <td>@Model.SomeId</td>
+                </tr>
+                <tr>
+                    <td><b>Name:</b></td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td><b>Something of his:</b></td>
+                    <td>@Model.Something</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

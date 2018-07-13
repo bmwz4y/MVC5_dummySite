@@ -1,0 +1,67 @@
+﻿
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:45:33
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:45:37
+Employees -> TestLogging -> Exception Occured! 	- 11/08/2017 09:45:37
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:45:43
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:45:43
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 09:45:43
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 09:45:43
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:47:44
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:47:44
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 09:47:44
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 09:47:45
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:48:27
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:48:27
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 09:48:27
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 09:48:27
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:49:27
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:49:27
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 09:49:27
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 09:49:28
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:49:53
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:49:53
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 09:49:53
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 09:49:53
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 09:50:36
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 09:50:36
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 09:50:36
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 09:50:36
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 10:04:54
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 10:04:54
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 10:04:54
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 10:05:27
+--------------------------------
+Employees -> TestLogging -> Section not defined: "copyWrite". 	- 11/08/2017 10:05:27
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/08/2017 10:05:32
+Employees -> TestLogging -> OnActionExecuted 	- 11/08/2017 10:05:32
+Employees -> TestLogging -> OnResultExecuting 	- 11/08/2017 10:05:32
+Employees -> TestLogging -> OnResultExecuted 	- 11/08/2017 10:05:33
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/11/2017 18:40:30
+Employees -> TestLogging -> OnActionExecuted 	- 11/11/2017 18:41:01
+Employees -> TestLogging -> Value cannot be null or empty.
+Parameter name: exception 	- 11/11/2017 18:41:01
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/18/2017 15:40:06
+Employees -> TestLogging -> OnActionExecuted 	- 11/18/2017 15:40:06
+Employees -> TestLogging -> OnResultExecuting 	- 11/18/2017 15:40:06
+Employees -> TestLogging -> OnResultExecuted 	- 11/18/2017 15:40:06
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/20/2017 08:20:14
+Employees -> TestLogging -> OnActionExecuted 	- 11/20/2017 08:20:15
+Employees -> TestLogging -> OnResultExecuting 	- 11/20/2017 08:20:15
+Employees -> TestLogging -> OnResultExecuted 	- 11/20/2017 08:20:16
+--------------------------------
+Employees -> TestLogging -> OnActionExecuting 	- 11/20/2017 12:02:15
+Employees -> TestLogging -> OnActionExecuted 	- 11/20/2017 12:02:15
+Employees -> TestLogging -> OnResultExecuting 	- 11/20/2017 12:02:15
+Employees -> TestLogging -> OnResultExecuted 	- 11/20/2017 12:02:15
+--------------------------------

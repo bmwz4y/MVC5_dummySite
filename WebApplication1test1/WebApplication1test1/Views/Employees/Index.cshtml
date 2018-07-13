@@ -1,0 +1,200 @@
+﻿@using AttributeRouting.Helpers
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<WebApplication1test1.Models.Employee>
+
+@*added on lesson 66 and moved to its own
+    js file inside scripts folder on lesson 88 *@
+<script src="~/Scripts/Custom/deleteCheckbox.js"></script>
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js") @*added on lesson 92 *@
+
+@*added on lesson 97*@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@*added on lesson 97 too *@
+<script type="text/javascript">
+    $(function () {
+        $("#searchTextBox").autocomplete({
+            source: '@Url.Action("GetEmployees")',
+            minLength: 2,
+            //the following option is used to hide the new versions ui helper text
+            messages: {
+                noResults: '',
+                results: function () { }
+            }
+        });
+    });
+</script>
+
+@* added on lesson 95 *@
+<script type="text/javascript">
+    function clearPreviousFlipFlopDiv() {
+        $("#FlipFlopDiv").empty();
+    }
+</script>
+
+@* old version of above script that seem impractical because they stop working after some point of checking and unchecking the boxes <script type="text/javascript">
+        $(function () {
+            $("#deleteAllCheckbox").click(function () {
+                $("input[name='idsToDelete']").attr("checked", this.checked);
+            });
+            $("input[name='idsToDelete']").click(function () {
+                if ($("input[name='idsToDelete']:checked").length === $("input[name='idsToDelete']").length) {
+                    $("#deleteAllCheckbox").attr("checked", "checked");
+                }
+                else {
+                    $("#deleteAllCheckbox").removeAttr("checked", "checked");
+                }
+            });
+            $("#deleteSubmit").click(function () {
+                var countDeletions = $("input[name='idsToDelete']:checked").length;
+                if (countDeletions === 0) {
+                    alert("Nothing selected to delete!");
+                    return false;
+                }
+                else {
+                    return confirm(countDeletions + " employees will be deleted!");
+                }
+            });
+        });
+    </script>*@
+
+@{
+    ViewBag.Title = "Index";//lesson 62 with edits from lesson 63 forword
+}
+
+<h2>Employees "[ @ViewBag.TheNonActionString ]"</h2>
+
+<div class="col-md-6">
+    <p>
+        @Html.ActionLink("Add New Employee", "Create")
+    </p>
+</div>
+
+@using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+{
+    <div class="col-md-6">
+        @*for lessons 71+ *@
+        @{
+            var moneyString = " ^$]";
+            // to test lesson 72 throw new Exception("error#1");
+        }
+        @Html.Action("_Search", new { moneyString })
+    </div>
+            }
+
+@if (!Model.Any())
+{
+    @: <br /> !No Matching Data Found! <br />
+            //lesson 92 changed this else
+    @Ajax.ActionLink("Flip", "Flip", new AjaxOptions()
+   {
+       HttpMethod = "GET",
+       UpdateTargetId = "FlipFlopDiv",
+       InsertionMode = InsertionMode.Replace,
+       LoadingElementId = "loading",
+       OnBegin = "clearPreviousFlipFlopDiv", //added on lesson 95
+       LoadingElementDuration = 400 // on lesson 96
+   })
+    @:--------
+
+    @Ajax.ActionLink("Flop", "Flop", new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "FlipFlopDiv",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "loading",
+    OnBegin = "clearPreviousFlipFlopDiv",//added on lesson 95
+    LoadingElementDuration = 400 // on lesson 96
+})
+
+    <div id="loading" style="display: none">
+        <img src="~/Content/Images/Loading.gif" style="width: 200px; height: 150px" />
+    </div>
+    <div id="FlipFlopDiv">@Html.Action("NeitherFlipNorFlop")</div> //@Html.Action("NeitherFlipNorFlop") means that it will load that partial view on loading the page first time (i.e. initial partial view)
+}
+else
+{
+    using (Html.BeginForm("Delete", "Employees", FormMethod.Post)) //added on lesson 65
+    {
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <th>
+                @* these 3 table headers were before lesson 64 like this: @Html.DisplayNameFor(model => model.First().Name))*@
+                @Html.ActionLink(Html.DisplayNameFor(model => model.First().Name).ToString(), "Index", new
+               {
+                   SortBy = ViewBag.SortByNameParameter,
+                   SearchEmpBy = Request.QueryString["SearchEmpBy"],
+                   SearchExpression = Request.QueryString["SearchExpression"]
+               })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().Gender)*@
+                @Html.ActionLink(Html.DisplayNameFor(model => model.First().Gender).ToString(), "Index", new
+               {
+                   SortBy = ViewBag.SortByGenderParameter,
+                   SearchEmpBy = Request.QueryString["SearchEmpBy"],
+                   SearchExpression = Request.QueryString["SearchExpression"]
+               })
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.First().Email)*@
+                @Html.ActionLink(Html.DisplayNameFor(model => model.First().Email).ToString(), "Index", new
+               {
+                   SortBy = ViewBag.SortByEmailParameter,
+                   SearchEmpBy = Request.QueryString["SearchEmpBy"],
+                   SearchExpression = Request.QueryString["SearchExpression"]
+               })
+            </th>
+            <th>
+                Actions
+            </th>
+            <th>
+                <input type="checkbox" id="deleteAllCheckbox" />
+                Delete?
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })@* |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+                </td>
+                <td name="s">
+                    <input type="checkbox" name="idsToDelete" id="idsToDelete" value=@item.Id />
+                </td>
+            </tr>
+            }
+        @* ReSharper disable UnknownCssClass *@
+    </table>
+    <div class="form-actions no-color pull-right">
+        @* ReSharper restore UnknownCssClass *@
+        <!-- was playing with responsive design here-->
+        <input id="deleteSubmit" type="submit" value="Delete Checked" class="btn btn-warning" />
+    </div>
+    }
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    SearchEmpBy = Request.QueryString["SearchEmpBy"],
+    SearchExpression = Request.QueryString["SearchExpression"],
+    Sortby = Request.QueryString["SortBy"]
+}), new PagedListRenderOptions() { DisplayItemSliceAndTotal = true }) //Display = PagedListDisplayMode.IfNeeded   no need because of how i did the if else of this view
+}
+@*copyright notice using last modified date for each view on it's own*@
+@section copyWrite
+    {
+    @File.GetLastWriteTime(Server.MapPath(VirtualPath)).ToLongDateString()
+}

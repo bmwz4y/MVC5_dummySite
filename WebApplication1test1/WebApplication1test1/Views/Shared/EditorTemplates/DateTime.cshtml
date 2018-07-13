@@ -1,0 +1,15 @@
+﻿@model DateTime?
+
+@*Started lesson 45*@
+@Html.TextBox("", Model.HasValue ? Model.Value.ToString("dd-MM-yyyy") : "", new { @class = "Date" })
+
+<br />
+@ViewData.ModelMetadata.DisplayFormatString
+<br />
+@ViewData.ModelMetadata.ContainerType.ToString()
+
+@*not working, it's not loading this
+
+    NOTE: NO NEED BECAUSE @Html.EditorFor(*) where * is of type dateFormat in its class model definition
+    ALREADY HAS DEFAULT DATEPICKER BY JQUERY,BOOTSTRAP,AND WHATNOT
+*@

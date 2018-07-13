@@ -1,0 +1,54 @@
+﻿@* commented the following line because it is added to web.config file of Views *@
+@*@using WebApplication1test1.CustomHtmlHelpers*@
+
+@model WebApplication1test1.Models.CrazyTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>crazyTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Crazy)@* lesson 50 informational about compile time error checking*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crazy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrazyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrazyDate)
+        </dd>
+    </dl>
+</div>
+
+@*lesson 48*@
+@*<img style="
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+    "src=" dsfdsf" alt="asd" />*@
+@Html.Image("~/Content/Images/smile_colored.png", "room image didn't load try again", new {@class = "img-circle" })
+
+<p>
+    @Html.ActionLink("Back to List", "ShowAll")
+</p>
+
+@*lesson 51 informational about the advantages of using strongly typed views (explicit statement of model) over ViewData, ViewBag and dynamic*@
+
+@*copyright notice using last modified date for each view on it's own*@
+@section copyWrite
+    {
+    @File.GetLastWriteTime(Server.MapPath(VirtualPath)).ToLongDateString()
+}

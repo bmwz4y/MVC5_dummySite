@@ -1,0 +1,46 @@
+﻿@model WebApplication1test1.Models.Class1
+
+@*@{ // this is a partial view to text for lesson 60
+        ViewBag.Title = "Delete partial view";
+    }*@
+
+@*<h2>Delete</h2>*@
+
+@*<h3>Are you sure you want to delete this?</h3>*@
+
+<div>
+    Are you sure you want to delete this?
+    @*<h4>Class1</h4>
+        <hr/>
+        <dl class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Something)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Something)
+            </dd>
+        </dl>*@
+
+    @* ReSharper disable UnknownCssClass *@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color col-md-6">
+            @* ReSharper restore UnknownCssClass *@
+            <input type="submit" value="Delete" class="btn btn-default" />
+            @* looked like a link and not Cancel Button so I changed it *@
+            @*@Html.ActionLink("Back to List", "E")*@
+            <button class="btn btn-default" onclick="location.href = '@Url.Action("E")';return false;">Cancel</button>
+        </div>
+    }
+</div>

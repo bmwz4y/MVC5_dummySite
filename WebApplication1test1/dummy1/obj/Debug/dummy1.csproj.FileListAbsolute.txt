@@ -1,0 +1,4 @@
+C:\Users\YEH\Documents\Visual Studio 2015\Projects\WebApplication1test1\dummy1\bin\Debug\dummy1.dll
+C:\Users\YEH\Documents\Visual Studio 2015\Projects\WebApplication1test1\dummy1\bin\Debug\dummy1.pdb
+C:\Users\YEH\Documents\Visual Studio 2015\Projects\WebApplication1test1\dummy1\obj\Debug\dummy1.dll
+C:\Users\YEH\Documents\Visual Studio 2015\Projects\WebApplication1test1\dummy1\obj\Debug\dummy1.pdb

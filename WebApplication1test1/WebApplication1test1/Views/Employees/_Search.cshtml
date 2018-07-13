@@ -1,0 +1,20 @@
+﻿@* my version is that I partialized in lesson 71 as well as ChildActionOnly and manipulated string*@
+
+<b>Search By:</b>
+@Html.RadioButton("SearchEmpBy", "Name", true) Name
+@Html.RadioButton("SearchEmpBy", "Email") Email
+@Html.ViewBag.MoneyString
+<br />
+<div class="form-group">
+    <table>
+        <tr>
+            <td>
+                @Html.TextBox("SearchExpression", null, new { @class = "form-control ui-widget", id = "searchTextBox" })
+            </td>
+            <td>-</td>
+            <td>
+                <input class="btn btn-default" type="submit" value="Search" />
+            </td>
+        </tr>
+    </table>
+</div>
